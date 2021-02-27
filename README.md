@@ -24,6 +24,8 @@ LC跑起来了.
 1. 前台页面最下端foot,新增后台页面跳转地址.
 2. 将static放进去了.
 3. 完善了 redis 连接配置和 mysql 连接配置中的ip和端口声明.写出来,更清晰.
+   redis对应位置: main.go:27 | conf/app.conf:15
+   mysql对应位置: models/core.go:13
 4. 新增.gitignore 文件.
 
 .gitignore 文件 可参考模板:
