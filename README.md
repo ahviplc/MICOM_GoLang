@@ -1,3 +1,50 @@
+# MICOM_GoLang
+
+```markdown
+ahviplc/MICOM_GoLang 谢谢分享的大神.
+https://github.com/ahviplc/MICOM_GoLang
+
+首页 - beego: 简约 & 强大并存的 Go 应用框架
+https://beego.me/
+
+beego/beego: beego is an open-source, high-performance web framework for the Go programming language.
+https://github.com/beego/beego
+
+beego/bee: Bee is a tool for helping develop with beego app framework.
+https://github.com/beego/bee
+
+LC跑起来了.
+=========================
+...redis的连接信息:  {"conn":"192.168.0.10:6379","dbNum":"0","key":"micom","password":""}
+连接redis数据库成功
+2021/02/27 11:55:52.442 [I] [asm_amd64.s:1357]  http server Running on http://:8080
+=========================
+
+改善点:
+1. 前台页面最下端foot,新增后台页面跳转地址.
+2. 将static放进去了.
+3. 完善了 redis 连接配置和 mysql 连接配置中的ip和端口声明.写出来,更清晰.
+4. 新增.gitignore 文件.
+
+.gitignore 文件 可参考模板:
+github/gitignore: A collection of useful .gitignore templates
+https://github.com/github/gitignore
+
+注意点:
+1.启动的是Windows版本redis,下载链接,github仓库:
+
+microsoftarchive/redis: Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes
+https://github.com/microsoftarchive/redis
+
+2.也有Linux版本:
+
+Redis
+https://redis.io/
+
+redis/redis: Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.
+https://github.com/redis/redis
+```
+
 # 环境配置
 
  - win10
@@ -36,7 +83,11 @@ func init() {
 
 ## 3:运行项目
 准备工作完成后,就可以运行项目啦
-你可以选择运行main.go文件,也可以在终端输入`bee run`,运行此项目
+你可以选择运行main.go文件,也可以在终端输入`bee run`,运行此项目,当然这个需要安装bee.
+
+> beego/bee: Bee is a tool for helping develop with beego app framework.
+  https://github.com/beego/bee
+
 最后打开 http://127.0.0.1:8080/ 即可 默认用户:1007643852@qq.com 密码:123456
 后台地址 http://127.0.0.1:8080/admin 管理员账号:admin 密码:123456(进入后台可修改)
 

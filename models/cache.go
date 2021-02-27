@@ -3,15 +3,16 @@ package models
 import (
 	"encoding/json"
 	"fmt"
+	"time"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/cache"
 	_ "github.com/astaxie/beego/cache/redis"
-	"time"
 )
 
 var redisClient cache.Cache
 var enableRedis, _ = beego.AppConfig.Bool("enableRedis")
-var redisTime,_ = beego.AppConfig.Int("redisTime")
+var redisTime, _ = beego.AppConfig.Int("redisTime")
 
 func init() {
 	if enableRedis {
@@ -22,6 +23,7 @@ func init() {
 			"password": beego.AppConfig.String("redisPwd"),
 		}
 		bytes, _ := json.Marshal(config)
+		fmt.Println("...redis的连接信息:", string(bytes))
 		redisClient, err = cache.NewCache("redis", string(bytes))
 		if err != nil {
 			fmt.Println(err)
@@ -33,22 +35,22 @@ func init() {
 }
 
 // 定义结构体
-type cacheDb struct {}
+type cacheDb struct{}
 
 // redis写入数据
-func (c cacheDb) Set(key string,value interface{})  {
+func (c cacheDb) Set(key string, value interface{}) {
 	if enableRedis {
-		bytes,_ := json.Marshal(value)
-		redisClient.Put(key,string(bytes),time.Second*time.Duration(redisTime))
+		bytes, _ := json.Marshal(value)
+		redisClient.Put(key, string(bytes), time.Second*time.Duration(redisTime))
 	}
 }
 
 // redis获取数据
-func (c cacheDb) Get(key string,obj interface{}) bool {
+func (c cacheDb) Get(key string, obj interface{}) bool {
 	if enableRedis {
-		if redisStr := redisClient.Get(key);redisStr != nil{
-			redisValue,_ := redisStr.([]uint8)
-			json.Unmarshal([]byte(redisValue),obj)
+		if redisStr := redisClient.Get(key); redisStr != nil {
+			redisValue, _ := redisStr.([]uint8)
+			json.Unmarshal([]byte(redisValue), obj)
 			return true
 		}
 		return false

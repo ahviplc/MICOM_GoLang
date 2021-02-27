@@ -8,7 +8,6 @@ require (
 	github.com/aliyun/aliyun-oss-go-sdk v2.1.6+incompatible
 	github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f // indirect
 	github.com/gomarkdown/markdown v0.0.0-20210208175418-bda154fe17d8
-	github.com/gomarkdown/mdtohtml v0.0.0-20180202094705-7346712f31b4 // indirect
 	github.com/hunterhug/go_image v0.0.0-20190710020854-8922226c5f4b
 	github.com/jinzhu/gorm v1.9.16
 	github.com/satori/go.uuid v1.2.0 // indirect
