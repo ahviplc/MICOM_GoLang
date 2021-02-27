@@ -4,6 +4,8 @@ go 1.15
 
 require github.com/astaxie/beego v1.12.1
 
+require github.com/ahviplc/GoJustToolc v0.3.1
+
 require (
 	github.com/aliyun/aliyun-oss-go-sdk v2.1.6+incompatible
 	github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f // indirect

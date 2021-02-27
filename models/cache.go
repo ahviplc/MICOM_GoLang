@@ -3,6 +3,7 @@ package models
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/ahviplc/GoJustToolc/UUtils/UJsonUtil"
 	"time"
 
 	"github.com/astaxie/beego"
@@ -23,13 +24,15 @@ func init() {
 			"password": beego.AppConfig.String("redisPwd"),
 		}
 		bytes, _ := json.Marshal(config)
-		fmt.Println("...redis的连接信息:", string(bytes))
+		// fmt.Println("...redis的连接信息:", string(bytes))
 		redisClient, err = cache.NewCache("redis", string(bytes))
 		if err != nil {
 			fmt.Println(err)
-			fmt.Println("连接redis数据库失败")
+			fmt.Println("...连接redis数据库失败...")
 		} else {
-			fmt.Println("连接redis数据库成功")
+			fmt.Println("...连接redis数据库成功...redis的连接信息json美化输出...")
+			// UJsonUtil.Pretty() 美化输出Json
+			fmt.Print(string(UJsonUtil.Pretty(bytes)))
 		}
 	}
 }
