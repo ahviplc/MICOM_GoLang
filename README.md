@@ -43,6 +43,28 @@ https://redis.io/
 
 redis/redis: Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.
 https://github.com/redis/redis
+
+打包 
+
+命令: go build - Go语言中文网 - Golang中文社区
+https://studygolang.com/articles/9463
+
+使用 go build 命令打包:
+
+1. 系统windows下：
+go build -o mi.app.exe main.go
+
+得到 mi.app.exe 可执行文件
+在命令窗口执行 .\mi.app.exe 即可.
+或者
+直接双击 mi.app.exe 可执行文件也可以执行.
+访问网址和享用吧.
+
+2. mac下和Linux下:
+go build -o mi.app main.go
+
+执行 mi.app 即可.
+访问网址和享用吧.
 ```
 
 # 环境配置
@@ -69,8 +91,7 @@ https://github.com/redis/redis
 修改models文件夹中的core.go
 ```go
 func init() {
-	DB,err = gorm.Open("mysql", "root:123456@/micom?charset=utf8&parseTime=True&loc=Local")
-      //DB,err = gorm.Open("mysql", "用户名:数据库密码@/数据库名称?charset=utf8&parseTime=True&loc=Local")
+	DB, err = gorm.Open("mysql", "root:root@(192.168.0.10:3306)/micom?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		beego.Error(err)
 	}
@@ -90,8 +111,6 @@ func init() {
 
 最后打开 http://127.0.0.1:8080/ 即可 默认用户:1007643852@qq.com 密码:123456
 后台地址 http://127.0.0.1:8080/admin 管理员账号:admin 密码:123456(进入后台可修改)
-
-
 ----------
 到此为止,项目应该是能跑起来了,如果你只想体验一下这个项目,完成前三步就行了
 如果你想实现oss云存储和用户注册的功能,可以接着往下看
@@ -145,7 +164,7 @@ verifyUrl := "http://mi.sunyj.xyz/pass/verifyUrl?verify="+models.Md5(passwd+"mic
 在腾讯云服务器中,包含数据库文件的数据库为micom,用户为micom,密码为124212,跟本地数据库的信息不同,所以需要在core.go文件中进行修改
 ```go
 func init() {
-	DB,err = gorm.Open("mysql", "micom:124212@/micom?charset=utf8&parseTime=True&loc=Local")
+	DB, err = gorm.Open("mysql", "root:root@(192.168.0.10:3306)/micom?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		beego.Error(err)
 	}
