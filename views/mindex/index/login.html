@@ -28,6 +28,7 @@
     <!-- 登录 -->
     <div class="container__form container--signin">
         <form action="/pass/login" class="form" id="form2" method="post">
+            <img src="/static/public/img/default_handsome.jpg" class="imgcss">
             <h2 class="form__title">欢迎登录</h2>
             <h2 class="form__title">小米商城GoLang</h2>
             <input type="hidden" name="prevpage" value="{{.prevpage}}">
@@ -35,7 +36,6 @@
             <input type="password" name="passwd" placeholder="Password" class="input"/>
             <a href="#" class="link">忘记密码?</a>
             <button class="btn" type="submit">登录</button>
-            <img src="/static/public/img/default_handsome.jpg" class="imgcss">
         </form>
     </div>
     <!-- 登录 -->
