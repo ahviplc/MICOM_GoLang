@@ -50,6 +50,9 @@ https://github.com/github/gitignore
 microsoftarchive/redis: Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes
 https://github.com/microsoftarchive/redis
 
+DeskRedis: Redis客户端桌面管理工具
+https://gitee.com/sunnypaine/DeskRedis
+
 2.也有Linux版本:
 
 Redis
